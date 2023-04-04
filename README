@@ -1,0 +1,35 @@
+Copyright Octavian Armasu 315CAa 2022-2023
+
+Tema 2 
+
+Am realizat tema folosind un tablou tridimensional, prima dimensiune 
+reprezinta indexul matricei, iar celelalte doua reprezinta matricea retinuta.
+Folosesc un while infinit din care iesim doar la citirea literei Q.
+Folosesc variabila "size" in care contorizez cate matrice au fost citite.
+Valoarea din size creste de fiecare data cand este citita litera L. Cu ajutorul
+unui subprogram aloc dinamic memoria pentru tabloul tridimensional astfel:
+- daca este prima matrice citita (size este 1) folosesc malloc, altfel folosesc
+realloc
+-fiecare matrice va fi alocata cu malloc
+Folosesc si doi vectori care sa retina numarul de linii si respectiv numarul de
+coloane ale matricelor.
+Pentru a realiza atat redimensionarea, cat si transpusa folosesc un dublu
+pointer ce se va duce la adresa matricei asupra careia aplic operatia. Folosesc
+o matrice auxiliara in care fie redimensionez, fie fac transpusa matricei.
+Dupa ce am creat noua matrice, fac matricea initiala (x[aux]) sa se duca la
+adresa lui matrix_aux(matricea auxiliara) si eliberez memoria dublului pointer
+folosit la inceput(cel care "pointa" la matricea initiala).
+Pentru sortarea matricelor folosim functia "suma" ce returneaza suma
+elementelor unei matrice. Folosim o matrice auxiliara si un vector auxiliar
+care sa ne ajute la interschimbarea matricelor din x si a vectorilor ce
+retin linia si coloana unei matrice.
+Pentru a elimina o matrice, eliberam memoria din x[aux], iar apoi mutam
+fiecare matrice si vectorii de linie si coloana cu o pozitie la stanga.
+La final, realocam memorie pentru vlinie, vcoloana si x, intrucat a scazut
+valoarea lui size cu 1.
+Folosesc o variabila ok, pe care o intializez cu 0 la inceput de while. Aceasta
+va lua valoarea 1 de fiecare data cand este citita o litera ce corespunde unei
+comenzi valide. Daca se ajunge la final si ok este tot 0 se va afisa mesajul
+cerut.
+Cand este citita litera Q, dau free la tablou tridimensional si la cei doi
+vectori folositi si dam break, astfel se termina programul.
